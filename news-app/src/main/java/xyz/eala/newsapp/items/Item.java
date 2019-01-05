@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 public class Item {
 	private String headline = "no headline available";
+	private String description = "no description available";
 	private String image = "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/No_image_available_500_x_500.svg/500px-No_image_available_500_x_500.svg.png"; 
 	private String dateTime;
 	private String writer = "no writer available";
@@ -13,9 +14,10 @@ public class Item {
 
 	}
 	
-	public Item(String headline, String image, String dateTime, String writer, String text) {
+	public Item(String headline, String description, String image, String dateTime, String writer, String text) {
 		super();
 		this.headline = headline;
+		this.description = description;
 		this.image = image;
 		this.dateTime = dateTime;
 		this.writer = writer;
@@ -28,6 +30,14 @@ public class Item {
 
 	public void setHeadline(String headline) {
 		this.headline = headline;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getImage() {

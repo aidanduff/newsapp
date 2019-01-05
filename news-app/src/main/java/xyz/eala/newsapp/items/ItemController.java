@@ -27,6 +27,7 @@ public class ItemController {
 	private List<Item> itemList = new ArrayList<>();
 	private URL url;
     private URLConnection urlConnection;
+    private Item topStory;
     
 	@RequestMapping(value = "/news", method = RequestMethod.GET)
 	public String index(HttpServletRequest request, Model model) {				
@@ -46,20 +47,24 @@ public class ItemController {
 	            itemList.clear();
 	            
 	            for (int i = 0; i < articles.length(); i++) {            	 
-	 	            String headline = articles.getJSONObject(i).optString("title", "no content");
+	 	            String headline = articles.getJSONObject(i).optString("title", "");
+	 	            String description = articles.getJSONObject(i).optString("description", "");
 	 	            String image = articles.getJSONObject(i).optString("urlToImage", "https://vignette.wikia.nocookie.net/bokunoheroacademia/images/d/d5/NoPicAvailable.png/revision/latest?cb=20160326222204");
 	 	            LocalDateTime localDateTime = LocalDateTime.ofInstant(Instant.parse(articles.getJSONObject(i).getString("publishedAt")), ZoneOffset.UTC);
 	 	            String dateTime = localDateTime.format(DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM));
-	 	            String writer = articles.getJSONObject(i).getJSONObject("source").optString("name", "no content");
-	 	            String text = articles.getJSONObject(i).optString("content", "no content");
-	 	            itemList.add(new Item(headline, image, dateTime, writer, text));
-	            }  
-	            itemList.add(new Item(null, null, null, null, null));
+	 	            String writer = articles.getJSONObject(i).getJSONObject("source").optString("name", "");
+	 	            String text = articles.getJSONObject(i).optString("content", "");
+	 	            itemList.add(new Item(headline, description, image, dateTime, writer, text));
+	            }
+	            
+	           topStory = itemList.get(0);
+	           itemList.remove(0);
 	        }
         } catch(IOException e){
             e.printStackTrace();
         }
 		
+        model.addAttribute("topStory", topStory);
         model.addAttribute("itemList", itemList);
 	
 		return "index";

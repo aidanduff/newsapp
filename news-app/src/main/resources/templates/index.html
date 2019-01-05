@@ -6,14 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>News App</title>
     <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{bootstrap.min.css}"/>
+    <link type="text/css" rel="stylesheet" href="style.css" th:href="@{style.css}"/>
 </head>
 <body>
-	<br>
-	<div class= "container" style="width: 100%;">
+	<div class= "container">
+		<div class="card text-white topStory" style="">
+			<img th:src="${topStory.image}" class="card-img" alt="Card image" style="max-height:500px;">
+			<div class="card-img-overlay" >
+				<h2 th:text="${topStory.headline}" class="card-title"></h2><br>
+				<div>
+				<p th:text="${topStory.description}" class="card-text" style="margin-right:40%;"></p>
+				</div><br>
+				<p th:text="${topStory.dateTime}"class="card-text">Last updated 3 mins ago</p>
+			</div>
+		</div>
 		<table class="table table-striped" style="outline: 1px solid grey; margin: 5px;">
 	    	<thead class="thead-dark">
 		        <tr>   
-		        	<th>News</th> 
+		        	<th>Latest Stories</th> 
 		        </tr>
 	        </thead>
 	        <tbody>
@@ -29,32 +39,6 @@
 	        </tbody>
 	    </table>
 	</div>
-	<!--
-	    <h2 th:text="${timeUpdated}" style="text-align:center"></h2><br>
-	    <form class="form-inline" method="post">
-	    	<input type="text" name="unit" placeholder="1" style="margin: 5px;" value ="1" class="form-control"></input>
-	    	<button type="submit" class="btn btn-primary" style="margin: 5px;">Convert</button>
-	    </form>
-	    <br>
-	    <table class="table table-striped" style="outline: 1px solid grey; margin: 5px;">
-	    	<thead class="thead-dark">
-		        <tr>    
-		            <th>Bitcoin</th>
-		            <th>Currency</th>
-		            <th>Rate</th>
-		        </tr>
-	        </thead>
-	        <tbody>
-		        <tr th:each = "currencyType : ${currencyTypes}">
-		            <td th:text="${currencyType.unit}"></td>
-		            <td th:text="${currencyType.name}"></td>
-		            <td th:text="${currencyType.convertedValue}"></td>
-	        	</tr>
-	        </tbody>
-	    </table>
-	    <br>
-	</div>
-	-->
     
 </body>
 </html>
