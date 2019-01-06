@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.time.Instant;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
@@ -28,6 +29,7 @@ public class ItemController {
 	private URL url;
     private URLConnection urlConnection;
     private Item topStory;
+    private String ldtString;
     
 	@RequestMapping(value = "/news", method = RequestMethod.GET)
 	public String index(HttpServletRequest request, Model model) {				
@@ -56,14 +58,14 @@ public class ItemController {
 	 	            String text = articles.getJSONObject(i).optString("content", "");
 	 	            itemList.add(new Item(headline, description, image, dateTime, writer, text));
 	            }
-	            
+	           ldtString = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.now()); 
 	           topStory = itemList.get(0);
 	           itemList.remove(0);
 	        }
         } catch(IOException e){
             e.printStackTrace();
         }
-		
+		model.addAttribute("ldtString", ldtString);
         model.addAttribute("topStory", topStory);
         model.addAttribute("itemList", itemList);
 	

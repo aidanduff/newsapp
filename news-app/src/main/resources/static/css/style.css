@@ -1,5 +1,6 @@
-.container {
-}
+body {
+    background: url ([[@{/img/white-waves.png}]]) no-repeat center center fixed;
+   }
 
 .topStory::before {
     display: block;
