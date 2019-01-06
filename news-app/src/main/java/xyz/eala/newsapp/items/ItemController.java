@@ -32,7 +32,7 @@ public class ItemController {
 	@RequestMapping(value = "/news", method = RequestMethod.GET)
 	public String index(HttpServletRequest request, Model model) {				
         try {
-        	url = new URL("https://newsapi.org/v2/top-headlines?apiKey=e55fb6eb42a945238aa4946a145d17d0&country=ie");
+        	url = new URL("https://newsapi.org/v2/top-headlines?apiKey=e55fb6eb42a945238aa4946a145d17d0&country=gb");
 	        urlConnection = url.openConnection();
 		 
 	        try(BufferedReader in = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()))){         
