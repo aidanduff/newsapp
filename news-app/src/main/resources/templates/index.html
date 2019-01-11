@@ -15,6 +15,19 @@
 </head>
 <body>
 	<div class= "container">
+		<form method="post">
+	    	<input type="hidden" name="country" value ="US"</input>
+	    	<button type="submit" class="btn">US</button>
+	    </form>
+	    <form method="post">
+	    	<input type="hidden" name="country" value ="Ireland"></input>
+	    	<button type="submit" class="btn">Ireland</button>
+	    </form>
+	    <form method="post">
+	    	<input type="hidden" name="country" value ="UK"></input>
+	    	<button type="submit" class="btn">UK</button>
+	    </form>
+	    
 		<div><img src="img/NewsWireLogo.png" alt="Logo image"><h2 th:text="${ldtString}" style ="float:right; padding-top:78px;"></h2></div>
 		<div class="card text-white topStory">
 			<img th:src="${topStory.image}" class="card-img" alt="Card image" style="max-height:500px;">
