@@ -21,7 +21,6 @@ public class ItemController {
     private URLConnection urlConnection;
     private Item topStory;
     private String ldtString;
-    private String day;
     
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(HttpServletRequest request, Model model) {				
@@ -37,7 +36,6 @@ public class ItemController {
         topStory = itemList.get(0);
         itemList.remove(0);
         
-        model.addAttribute("day", day);
 		model.addAttribute("ldtString", ldtString);
         model.addAttribute("topStory", topStory);
         model.addAttribute("itemList", itemList);
@@ -56,11 +54,9 @@ public class ItemController {
         }
         
         ldtString = ItemControllerHelper.getDate();
-        day = ItemControllerHelper.getDay();
         topStory = itemList.get(0);
         itemList.remove(0);
         
-        model.addAttribute("day", day);
 		model.addAttribute("ldtString", ldtString);
         model.addAttribute("topStory", topStory);
         model.addAttribute("itemList", itemList);
@@ -79,11 +75,9 @@ public class ItemController {
         }
         
         ldtString = ItemControllerHelper.getDate();
-        day = ItemControllerHelper.getDay();
         topStory = itemList.get(0);
         itemList.remove(0);
         
-        model.addAttribute("day", day);
 		model.addAttribute("ldtString", ldtString);
         model.addAttribute("topStory", topStory);
         model.addAttribute("itemList", itemList);
@@ -102,11 +96,9 @@ public class ItemController {
         }
         
         ldtString = ItemControllerHelper.getDate();
-        day = ItemControllerHelper.getDay();
         topStory = itemList.get(0);
         itemList.remove(0);
         
-        model.addAttribute("day", day);
 		model.addAttribute("ldtString", ldtString);
         model.addAttribute("topStory", topStory);
         model.addAttribute("itemList", itemList);

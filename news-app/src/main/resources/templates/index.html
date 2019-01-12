@@ -7,7 +7,7 @@
     <title>The NewsWire</title>
     <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{css/bootstrap.min.css}"/>
     <link type="text/css" rel="stylesheet" href="styles.css" th:href="@{css/styles.css}"/>
-	<style th:inline="text">body{ background: url([[@{/img/white-waves.png}]]);}</style>
+	<style th:inline="text">body{ background: url([[@{/img/white-waves.png}]]); background-size: auto;}</style>
 </head>
 <body>
 	<div class= "container">
@@ -16,12 +16,9 @@
                         <img src="img/NewsWireLogo.png" alt="logo">
         
                     </div>
-                    <div class="topContainerItem-2">
+<!--                <div class="topContainerItem-2">
                     		<div class="date"><h4 th:text="${day}"></h4></div>
-                    </div>
-                    <div class="topContainerItem-3">
-                            <div class="date"><h4 th:text="${ldtString}"></h4></div>
-                    </div>
+                    </div> -->
                     <div class="topContainerItem-4">
                         <div class="language">
                         	<p><a href="/ireland">Ireland</a></p>
@@ -29,9 +26,12 @@
                         <div class="language">
                         	<p><a href="/us">United States</a></p>
                         </div>
-                        <div class="languages">
+                        <div class="language">
 							<p><a href="/uk">United Kingdom</a></p>
                         </div>
+                    </div>
+                    <div class="topContainerItem-3">
+                            <div class="date"><h5 th:text="${ldtString}"></h5></div>
                     </div>
                 </div>
     <div class="topStoryContainer">
