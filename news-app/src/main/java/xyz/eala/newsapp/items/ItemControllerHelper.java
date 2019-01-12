@@ -22,6 +22,10 @@ class ItemControllerHelper {
 		return DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG).format(LocalDate.now());
 	}
 	
+	static String getDay() {
+		return LocalDate.now().getDayOfWeek().toString() + ", ";
+	}
+	
 	static String getAPIURL(String country) {
 		switch(country) {
 			case "Ireland" : country = "https://newsapi.org/v2/top-headlines?apiKey=e55fb6eb42a945238aa4946a145d17d0&country=ie"; break;						

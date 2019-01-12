@@ -21,6 +21,7 @@ public class ItemController {
     private URLConnection urlConnection;
     private Item topStory;
     private String ldtString;
+    private String day;
     
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(HttpServletRequest request, Model model) {				
@@ -28,7 +29,6 @@ public class ItemController {
         	url = new URL(ItemControllerHelper.getAPIURL("Ireland"));
 	        urlConnection = url.openConnection();
 	        itemList = ItemControllerHelper.getNewsItemList(urlConnection);
-		 
         } catch(IOException e){
             e.printStackTrace();
         }
@@ -37,6 +37,7 @@ public class ItemController {
         topStory = itemList.get(0);
         itemList.remove(0);
         
+        model.addAttribute("day", day);
 		model.addAttribute("ldtString", ldtString);
         model.addAttribute("topStory", topStory);
         model.addAttribute("itemList", itemList);
@@ -44,27 +45,95 @@ public class ItemController {
 		return "index";
 	}
 	
-	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public String getNewsByCountry(HttpServletRequest request, Model model) {
-		String country = request.getParameter("country");
-		 try {
-	        	url = new URL(ItemControllerHelper.getAPIURL(country));
-		        urlConnection = url.openConnection();
-		        itemList = ItemControllerHelper.getNewsItemList(urlConnection);
-			 
-	        } catch(IOException e){
-	            e.printStackTrace();
-	        }
-	        
-	        ldtString = ItemControllerHelper.getDate(); 
-	        topStory = itemList.get(0);
-	        itemList.remove(0);
-	        
-			model.addAttribute("ldtString", ldtString);
-	        model.addAttribute("topStory", topStory);
-	        model.addAttribute("itemList", itemList);
-		
-			return "index";
+	@RequestMapping(value = "/ireland", method = RequestMethod.GET)
+	public String getIreland(HttpServletRequest request, Model model) {				
+        try {
+        	url = new URL(ItemControllerHelper.getAPIURL("Ireland"));
+	        urlConnection = url.openConnection();
+	        itemList = ItemControllerHelper.getNewsItemList(urlConnection);
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+        
+        ldtString = ItemControllerHelper.getDate();
+        day = ItemControllerHelper.getDay();
+        topStory = itemList.get(0);
+        itemList.remove(0);
+        
+        model.addAttribute("day", day);
+		model.addAttribute("ldtString", ldtString);
+        model.addAttribute("topStory", topStory);
+        model.addAttribute("itemList", itemList);
+	
+		return "index";
 	}
+	
+	@RequestMapping(value = "/uk", method = RequestMethod.GET)
+	public String getUK(HttpServletRequest request, Model model) {				
+        try {
+        	url = new URL(ItemControllerHelper.getAPIURL("UK"));
+	        urlConnection = url.openConnection();
+	        itemList = ItemControllerHelper.getNewsItemList(urlConnection);
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+        
+        ldtString = ItemControllerHelper.getDate();
+        day = ItemControllerHelper.getDay();
+        topStory = itemList.get(0);
+        itemList.remove(0);
+        
+        model.addAttribute("day", day);
+		model.addAttribute("ldtString", ldtString);
+        model.addAttribute("topStory", topStory);
+        model.addAttribute("itemList", itemList);
+	
+		return "index";
+	}
+	
+	@RequestMapping(value = "/us", method = RequestMethod.GET)
+	public String getUS(HttpServletRequest request, Model model) {				
+        try {
+        	url = new URL(ItemControllerHelper.getAPIURL("US"));
+	        urlConnection = url.openConnection();
+	        itemList = ItemControllerHelper.getNewsItemList(urlConnection);
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+        
+        ldtString = ItemControllerHelper.getDate();
+        day = ItemControllerHelper.getDay();
+        topStory = itemList.get(0);
+        itemList.remove(0);
+        
+        model.addAttribute("day", day);
+		model.addAttribute("ldtString", ldtString);
+        model.addAttribute("topStory", topStory);
+        model.addAttribute("itemList", itemList);
+	
+		return "index";
+	}
+	
+//	@RequestMapping(value = "/", method = RequestMethod.POST)
+//	public String getNewsByCountry(HttpServletRequest request, Model model) {
+//		String country = request.getParameter("country");
+//		 try {
+//	        	url = new URL(ItemControllerHelper.getAPIURL(country));
+//		        urlConnection = url.openConnection();
+//		        itemList = ItemControllerHelper.getNewsItemList(urlConnection);
+//	        } catch(IOException e){
+//	            e.printStackTrace();
+//	        }
+//	        
+//	        ldtString = ItemControllerHelper.getDate(); 
+//	        topStory = itemList.get(0);
+//	        itemList.remove(0);
+//	        
+//			model.addAttribute("ldtString", ldtString);
+//	        model.addAttribute("topStory", topStory);
+//	        model.addAttribute("itemList", itemList);
+//		
+//			return "index";
+//	}
 }
 

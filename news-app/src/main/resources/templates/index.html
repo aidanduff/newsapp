@@ -4,60 +4,70 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>News App</title>
+    <title>The NewsWire</title>
     <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{css/bootstrap.min.css}"/>
-    <link type="text/css" rel="stylesheet" href="style.css" th:href="@{css/style.css}"/>
-    <style th:inline="text">
-		body{
-		    background: url([[@{/img/white-waves.png}]]);
-		}
-</style>
+    <link type="text/css" rel="stylesheet" href="styles.css" th:href="@{css/styles.css}"/>
+	<style th:inline="text">body{ background: url([[@{/img/white-waves.png}]]);}</style>
 </head>
 <body>
 	<div class= "container">
-		<form method="post">
-	    	<input type="hidden" name="country" value ="US"</input>
-	    	<button type="submit" class="btn">US</button>
-	    </form>
-	    <form method="post">
-	    	<input type="hidden" name="country" value ="Ireland"></input>
-	    	<button type="submit" class="btn">Ireland</button>
-	    </form>
-	    <form method="post">
-	    	<input type="hidden" name="country" value ="UK"></input>
-	    	<button type="submit" class="btn">UK</button>
-	    </form>
-	    
-		<div><img src="img/NewsWireLogo.png" alt="Logo image"><h2 th:text="${ldtString}" style ="float:right; padding-top:78px;"></h2></div>
-		<div class="card text-white topStory">
-			<img th:src="${topStory.image}" class="card-img" alt="Card image" style="max-height:500px;">
-			<div class="card-img-overlay" >
-				<h2 th:text="${topStory.headline}" class="card-title"></h2><br>
-				<div>
-				<p><h4 th:text="${topStory.description}" class="card-text" style="margin-right:50%;"></h4></p>
-				</div><br>
-				<p th:text="${topStory.dateTime}"class="card-text">Last updated 3 mins ago</p>
-			</div>
-		</div>
-		<table class="table table-striped" style="outline: 1px solid grey; margin: 5px; background-color:white;">
-	    	<thead class="thead-dark">
-		        <tr>   
-		        	<th>Latest Stories</th> 
-		        </tr>
-	        </thead>
-	        <tbody>
-		        <tr th:each = "item : ${itemList}">
-		            <td> 
-		            	<h3 th:text="${item.headline}"></h3>
-            			<p><img th:src="${item.image}" style="max-height:100px; float:left; margin-right:20px;"></p>
-            			<p><h6 th:text="${item.text}"></h6></p>
-            			<p th:text="${item.dateTime}"></p>
-            			<p th:text="${item.writer}" style="float:right;"></p>
-		           </td>
-	        	</tr>
-	        </tbody>
-	    </table>
-	</div>
-    
+            <div class="topContainer">
+                    <div class="topContainerItem-1">
+                        <img src="img/NewsWireLogo.png" alt="logo">
+        
+                    </div>
+                    <div class="topContainerItem-2">
+                    		<div class="date"><h4 th:text="${day}"></h4></div>
+                    </div>
+                    <div class="topContainerItem-3">
+                            <div class="date"><h4 th:text="${ldtString}"></h4></div>
+                    </div>
+                    <div class="topContainerItem-4">
+                        <div class="language">
+                        	<p><a href="/ireland">Ireland</a></p>
+                        </div>
+                        <div class="language">
+                        	<p><a href="/us">United States</a></p>
+                        </div>
+                        <div class="languages">
+							<p><a href="/uk">United Kingdom</a></p>
+                        </div>
+                    </div>
+                </div>
+    <div class="topStoryContainer">
+            <div class="topStoryContainerItem1">
+                <h1 th:text="${topStory.headline}"></h1>
+            </div>
+            <div class="topStoryContainerItem2">
+                <img th:src="${topStory.image}" style="max-height:400px;"alt="log"/>
+            </div>
+        </div>
+        <div class="topStoryDiscription">
+            <h5 th:text="${topStory.description}"></h5>
+<!--             <p th:text="${topStory.dateTime}"></p> -->
+        </div>
+        <div class="storyContainer">
+                <div class="stories">
+                    <table class="table table-striped">
+                        <thead class="thead-dark">
+                            <tr>   
+                                <th>Latest Stories</th> 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each = "item : ${itemList}">
+                                <td> 
+                                    <h3 th:text="${item.headline}"></h3>
+                                    <p><img th:src="${item.image}" style="max-height:20%; max-width:25%; float:left; margin-right:20px;"></p>
+                                    <p><h6 th:text="${item.text}"></h6></p>
+                                    <p th:text="${item.dateTime}"></p>
+                                    <p th:text="${item.writer}" style="float:right;"></p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+	</div>  
 </body>
 </html>
