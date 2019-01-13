@@ -3,12 +3,9 @@
     padding: 0;
     text-decoration: none;
     background: url([[@{/img/white-waves.png}]]);
-    background-repeat: repeat;
-    height: 100%;
 }
 
 body {
-    height: 100%;
     background-color: #cccccc;
     padding-top:.5%;
 }
@@ -16,6 +13,11 @@ body {
 img{
     width:100%;
 }
+
+a {
+  color:inherit;
+  text-decoration: none;
+ }
 
 .topContainer{
     display:flex;
@@ -37,11 +39,10 @@ img{
 } */
 
 .topContainerItem-3{
-	height:80%;
-    flex:2;
+    flex:1;
     display:flex;
-	flex-direction:column;
-	align-self: flex-end; 
+    flex-direction:column;
+    align-self: flex-end;
 }
 
 .topContainerItem-4{
@@ -49,12 +50,19 @@ img{
     display:flex;
     flex-direction:column;
     align-items:flex-start;
+    padding-left:2%;
+    font-weight:bold;
 }
 
 /* .date{
     flex:3; 
     display: flex;
 } */
+
+.flag{
+	max-height: 24px;
+	max-width: 24px;
+}
 
 .language{
     flex:1;
@@ -95,7 +103,7 @@ img{
 
 .storyContainer{
     display:flex;
-    height:100vh;
+/*     height:100vh; */
 }
 
 .table{

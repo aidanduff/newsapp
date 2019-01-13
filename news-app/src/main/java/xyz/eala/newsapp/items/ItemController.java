@@ -3,6 +3,7 @@ package xyz.eala.newsapp.items;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +22,7 @@ public class ItemController {
     private URLConnection urlConnection;
     private Item topStory;
     private String ldtString;
+    private String day;
     
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(HttpServletRequest request, Model model) {				
@@ -33,9 +35,15 @@ public class ItemController {
         }
         
         ldtString = ItemControllerHelper.getDate(); 
+        String day1 = LocalDate.now().getDayOfWeek().toString().toLowerCase();
+        char c = day1.toUpperCase().charAt(0);
+        String day2 = day1.substring(1);
+        day = c + day2;
+        
         topStory = itemList.get(0);
         itemList.remove(0);
         
+        model.addAttribute("day", day);
 		model.addAttribute("ldtString", ldtString);
         model.addAttribute("topStory", topStory);
         model.addAttribute("itemList", itemList);
@@ -96,6 +104,7 @@ public class ItemController {
         }
         
         ldtString = ItemControllerHelper.getDate();
+        
         topStory = itemList.get(0);
         itemList.remove(0);
         

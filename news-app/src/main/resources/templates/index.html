@@ -7,7 +7,7 @@
     <title>The NewsWire</title>
     <link type="text/css" rel="stylesheet" href="bootstrap.min.css" th:href="@{css/bootstrap.min.css}"/>
     <link type="text/css" rel="stylesheet" href="styles.css" th:href="@{css/styles.css}"/>
-	<style th:inline="text">body{ background: url([[@{/img/white-waves.png}]]); background-size: auto;}</style>
+	<style th:inline="text">body{ background: url([[@{/img/white-waves.png}]]);}</style>
 </head>
 <body>
 	<div class= "container">
@@ -20,18 +20,21 @@
                     		<div class="date"><h4 th:text="${day}"></h4></div>
                     </div> -->
                     <div class="topContainerItem-4">
-                        <div class="language">
-                        	<p><a href="/ireland">Ireland</a></p>
+                    <div class="language">
+                        	<p>Choose your country:</p>
                         </div>
                         <div class="language">
-                        	<p><a href="/us">United States</a></p>
+                        	<p><a href="/ireland"><img class = "flag" src="img/IE.png" alt="IEflag"> Ireland</a></p>
                         </div>
                         <div class="language">
-							<p><a href="/uk">United Kingdom</a></p>
+                        	<p><a href="/us"><img class = "flag" src="img/US.png" alt="USflag"> United States</a></p>
+                        </div>
+                        <div class="language">
+							<p><a href="/uk"><img class = "flag" src="img/GB.png" alt="GBflag"> United Kingdom</a></p>
                         </div>
                     </div>
                     <div class="topContainerItem-3">
-                            <div class="date"><h5 th:text="${ldtString}"></h5></div>
+                            <div class="date"><h5 th:text="${day}"></h5><h5 th:text="${ldtString}"></h5></div>
                     </div>
                 </div>
     <div class="topStoryContainer">
