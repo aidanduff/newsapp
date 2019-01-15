@@ -35,10 +35,7 @@ public class ItemController {
         }
         
         ldtString = ItemControllerHelper.getDate(); 
-        String day1 = LocalDate.now().getDayOfWeek().toString().toLowerCase();
-        char c = day1.toUpperCase().charAt(0);
-        String day2 = day1.substring(1);
-        day = c + day2;
+        day = ItemControllerHelper.getDay();
         
         topStory = itemList.get(0);
         itemList.remove(0);
@@ -62,9 +59,11 @@ public class ItemController {
         }
         
         ldtString = ItemControllerHelper.getDate();
+        day = ItemControllerHelper.getDay();
         topStory = itemList.get(0);
         itemList.remove(0);
         
+		model.addAttribute("day", day);
 		model.addAttribute("ldtString", ldtString);
         model.addAttribute("topStory", topStory);
         model.addAttribute("itemList", itemList);
@@ -83,9 +82,11 @@ public class ItemController {
         }
         
         ldtString = ItemControllerHelper.getDate();
+        day = ItemControllerHelper.getDay();
         topStory = itemList.get(0);
         itemList.remove(0);
         
+		model.addAttribute("day", day);
 		model.addAttribute("ldtString", ldtString);
         model.addAttribute("topStory", topStory);
         model.addAttribute("itemList", itemList);
@@ -104,37 +105,17 @@ public class ItemController {
         }
         
         ldtString = ItemControllerHelper.getDate();
+        day = ItemControllerHelper.getDay();
         
         topStory = itemList.get(0);
         itemList.remove(0);
         
+		model.addAttribute("day", day);
 		model.addAttribute("ldtString", ldtString);
         model.addAttribute("topStory", topStory);
         model.addAttribute("itemList", itemList);
 	
 		return "index";
 	}
-	
-//	@RequestMapping(value = "/", method = RequestMethod.POST)
-//	public String getNewsByCountry(HttpServletRequest request, Model model) {
-//		String country = request.getParameter("country");
-//		 try {
-//	        	url = new URL(ItemControllerHelper.getAPIURL(country));
-//		        urlConnection = url.openConnection();
-//		        itemList = ItemControllerHelper.getNewsItemList(urlConnection);
-//	        } catch(IOException e){
-//	            e.printStackTrace();
-//	        }
-//	        
-//	        ldtString = ItemControllerHelper.getDate(); 
-//	        topStory = itemList.get(0);
-//	        itemList.remove(0);
-//	        
-//			model.addAttribute("ldtString", ldtString);
-//	        model.addAttribute("topStory", topStory);
-//	        model.addAttribute("itemList", itemList);
-//		
-//			return "index";
-//	}
 }
 
