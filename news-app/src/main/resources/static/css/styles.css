@@ -1,3 +1,5 @@
+@media(min-width:768px){
+
 * {
     margin: 0;
     padding: 0;
@@ -33,6 +35,7 @@ a {
 .logo{
 	padding-bottom:1%;
 }
+
 
 .topContainerItem-3{
     flex:1;
@@ -110,4 +113,119 @@ a {
 .stories{
     background-color:white;
     flex-basis:100%;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+@media(max-width:768px){
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    background: url([[@{/img/white-waves.png}]]);
+}
+
+body {
+    background-color: #cccccc;
+}
+
+img{
+    width:100%;
+}
+
+a {
+  color:inherit;
+  text-decoration: none;
+ }
+
+.topContainer{
+    display:flex;
+    height:128px;
+    flex-direction:column;
+    background-color:#2d2d2d;
+    margin-bottom:-40px;
+}
+
+.topContainerItem-1{
+    flex:5;
+    display:flex;
+    flex-direction:row;
+    font-weight:bold;
+    max-height:40%;
+}
+
+.logo{
+}
+
+.topContainerItem-3{
+    display:none;
+}
+
+.topContainerItem-4{
+	flex:1;
+    display:flex;
+    flex-direction:row;
+    font-size: 0px !important;
+/* 	font-size: 12px; */
+    padding-bottom:3%;
+    justify-content:flex-end;
+}
+
+.flag{
+	width:30px;
+	height:30px;
+	padding-left:20%;
+	padding-right:20%;
+
+}
+
+.language{
+/* 	padding:1%; */
+  
+}
+
+.topStory{
+	display:none;
+}
+
+.topStoryContainer{
+    display:none;
+}
+
+.topStoryContainerItem1{
+	display:none;
+}
+
+.topStoryContainerItem2{
+    bdisplay:none;
+}
+
+.topStoryDiscription{
+	display:none;
+}
+
+.storyContainer{
+    display:flex;
+/*     height:100vh; */
+}
+
+.table{
+    outline: 1px solid darkgrey; 
+}
+
+.stories{
+    background-color:white;
+    flex-basis:100%;
+}
+
 }
